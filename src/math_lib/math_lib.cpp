@@ -42,5 +42,14 @@ namespace MathLib
 		if (b == 0) return a;
 		return GCD(b, a % b);
 	}
+
+    int calculateThirdAngle(int angle1, int angle2)
+    {
+        if (angle1 <= 0 || angle2 <= 0 || (angle1 + angle2 >= 180))
+        {
+            throw std::invalid_argument("Invalid angles provided. The sum must be less than 180 and each angle must be positive.");
+        }
+        return 180 - angle1 - angle2;
+    }
 }
 
