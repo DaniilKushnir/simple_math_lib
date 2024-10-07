@@ -22,7 +22,7 @@ TEST_F(MathLibTestFixture, AddTwoValues)
 {
     EXPECT_EQ(MathLib::add(10.5, 2.5), 13.0);
     EXPECT_TRUE(MathLib::isEqual(MathLib::add(10.5, 2.5), 13.0));
-    EXPECT_FALSE(MathLib::isEqual(MathLib::add(10.5, 2.5), 13.0001));
+    EXPECT_FALSE(MathLib::isEqual(MathLib::add(10.5, 2.5), 13.0001, 1e-6));
 }
 
 TEST_F(MathLibTestFixture, SubTwoValues)
@@ -87,3 +87,4 @@ TEST_F(MathLibTestFixture, CalculateThirdAngleTest)
     EXPECT_THROW(MathLib::calculateThirdAngle(-30, 60), std::invalid_argument); // Від’ємний кут
     EXPECT_THROW(MathLib::calculateThirdAngle(0, 60), std::invalid_argument);   // Кут дорівнює нулю
 }
+
