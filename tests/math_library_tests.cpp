@@ -77,3 +77,13 @@ TEST_F(MathLibTestFixture, GreatestCommonDivider)
 {
     EXPECT_EQ(MathLib::GCD(10, 6), 2);
 }
+
+TEST_F(MathLibTestFixture, CalculateThirdAngleTest)
+{
+    EXPECT_EQ(MathLib::calculateThirdAngle(60, 60), 60);
+    EXPECT_EQ(MathLib::calculateThirdAngle(90, 45), 45);
+    EXPECT_EQ(MathLib::calculateThirdAngle(30, 60), 90);
+    EXPECT_THROW(MathLib::calculateThirdAngle(90, 90), std::invalid_argument); // Сума кутів більше 180
+    EXPECT_THROW(MathLib::calculateThirdAngle(-30, 60), std::invalid_argument); // Від’ємний кут
+    EXPECT_THROW(MathLib::calculateThirdAngle(0, 60), std::invalid_argument);   // Кут дорівнює нулю
+}
