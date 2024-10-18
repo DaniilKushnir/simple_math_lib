@@ -2,7 +2,7 @@ name: SonarCloud analysis
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "develop" ]
   pull_request:
     branches: [ "main" ]
   workflow_dispatch:
@@ -15,18 +15,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Analyze with SonarCloud
         uses: SonarSource/sonarcloud-github-action@4006f663ecaf1f8093e8e4abb9227f6041f52216
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          args: |
-            -X
+          args:
             -Dsonar.projectKey=DaniilKushnir_simple_math_lib
             -Dsonar.organization=daniilkushnir
-            -Dsonar.sources=src
-            -Dsonar.tests=tests
           projectBaseDir: .
