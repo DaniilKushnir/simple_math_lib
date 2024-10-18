@@ -24,6 +24,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: |
+            -X
             -Dsonar.projectKey=DaniilKushnir_simple_math_lib
             -Dsonar.organization=daniilkushnir
             -Dsonar.sources=src
